@@ -1,0 +1,30 @@
+{
+  "name": "seo-ux-auditor",
+  "version": "1.0.0",
+  "description": "Seo + UX",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nadyf-hanane/seo-ux-auditor.git"
+  },
+  "keywords": [
+    "Seo",
+    "user",
+    "experience",
+    "backlinks",
+    "licence....."
+  ],
+  "author": "Hanane Nadyf",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nadyf-hanane/seo-ux-auditor/issues"
+  },
+  "homepage": "https://github.com/nadyf-hanane/seo-ux-auditor#readme",
+  "dependencies": {
+    "cheerio": "^1.1.2"
+  }
+}
