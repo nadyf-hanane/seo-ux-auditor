@@ -1,14 +1,20 @@
-// Cette fonction analyse la partie SEO d'une page HTML
-// Pour le moment : elle extrait seulement le <title>
-export function analyzeSEO(page) {
-    // page est l'objet cheerio (DOM parser)
-    // On récupère le texte dans la balise <title>
-    const title = page("title").text().trim();
+// src/analyzers/seoAnalyzer.js
+import * as cheerio from "cheerio";
 
-    // On prépare un objet résultat simple
-    return {
-        title: title || null,         // Titre trouvé ou null
-        titleLength: title.length || 0, // Longueur du titre
-        hasTitle: title.length > 0    // Indique si un titre existe
-    };
+
+/**
+ * Analyse le HTML et extrait les informations SEO essentielles
+ */
+export function seoAnalyzer(html) {
+  const $ = cheerio.load(html);
+
+  return {
+    title: $("title").text().trim(),
+    description: $('meta[name="description"]').attr("content") || "",
+    canonical: $('link[rel="canonical"]').attr("href") || "",
+    ogImage: $('meta[property="og:image"]').attr("content") || "",
+    headings: {
+      h1: $("h1").map((i, el) => $(el).text().trim()).get()
+    }
+  };
 }
