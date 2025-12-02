@@ -1,21 +1,14 @@
-// src/analyzers/metaGenerator.js
 
-/**
- * Génère automatiquement les balises <meta> SEO manquantes ou incorrectes
- * à partir des données extraites par seoAnalyzer.
- */
 
 export function generateMetaTags(data) {
   const meta = [];
 
-  // Title
   if (!data.title || data.title.trim() === "") {
     meta.push(`<title>Default SEO Title</title>`);
   } else {
     meta.push(`<title>${data.title}</title>`);
   }
 
-  // Meta Description
   if (!data.description || data.description.trim() === "") {
     meta.push(
       `<meta name="description" content="Default meta description for SEO optimization." />`
@@ -26,7 +19,6 @@ export function generateMetaTags(data) {
     );
   }
 
-  // Canonical
   if (!data.canonical || data.canonical.trim() === "") {
     meta.push(
       `<link rel="canonical" href="https://example.com/" />`
@@ -37,7 +29,6 @@ export function generateMetaTags(data) {
     );
   }
 
-  // OpenGraph / Social preview
   meta.push(
     `<meta property="og:title" content="${data.title || "Default OG Title"}" />`
   );
@@ -50,7 +41,6 @@ export function generateMetaTags(data) {
     `<meta property="og:image" content="${data.ogImage || "https://example.com/default.jpg"}" />`
   );
 
-  // Twitter Card
   meta.push(`<meta name="twitter:card" content="summary_large_image" />`);
   meta.push(
     `<meta name="twitter:title" content="${data.title || "Default Twitter Title"}" />`

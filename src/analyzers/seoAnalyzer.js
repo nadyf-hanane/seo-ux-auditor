@@ -1,10 +1,6 @@
-// src/analyzers/seoAnalyzer.js
+
 import * as cheerio from "cheerio";
 
-
-/**
- * Analyse le HTML et extrait les informations SEO essentielles
- */
 export function seoAnalyzer(html) {
   const $ = cheerio.load(html);
 
